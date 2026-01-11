@@ -2,7 +2,7 @@
   "name": "ehmetlabs/webman-tenant",
   "type": "library",
   "license": "MIT",
-  "description": "Webman plugin ehmetlabs/webman-tenant",
+  "description": "Multi-tenant management for Webman framework",
   "require": {
   },
   "autoload": {
