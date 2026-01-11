@@ -21,7 +21,7 @@ final class TenantResolver
                 $tenantId = $adminIdentity['tenantId'];
 
                 return new TenantResolution(
-                    new TenantInfo($tenantId, (string) $tenantId, 'admin', $adminIdentity['isGlobalAdmin'])
+                    new TenantInfo($tenantId, (string) $tenantId, 'admin', $adminIdentity['isGlobalAdmin']),
                 );
             }
 
@@ -46,7 +46,7 @@ final class TenantResolver
         }
 
         return new TenantResolution(
-            new TenantInfo($tenantId, $tenantKey, $source, $adminIdentity['isGlobalAdmin'])
+            new TenantInfo($tenantId, $tenantKey, $source, $adminIdentity['isGlobalAdmin']),
         );
     }
 
@@ -178,7 +178,7 @@ final class TenantResolver
     {
         $adminId = null;
         if (\function_exists('admin_id')) {
-            $adminId = \admin_id();
+            $adminId = admin_id();
         }
         if (null === $adminId && \is_array($tokenClaims)) {
             $adminClaimKey = (string) ($config['token_admin_claim_key'] ?? 'admin_id');
@@ -191,7 +191,7 @@ final class TenantResolver
 
         $tenantId = null;
         if (\function_exists('admin')) {
-            $adminTenantId = \admin('tenant_id');
+            $adminTenantId = admin('tenant_id');
             if (null !== $adminTenantId) {
                 $tenantId = (int) $adminTenantId;
             }

@@ -40,6 +40,7 @@ abstract class TenantModel extends Model
                         $model->setAttribute($tenantColumn, $tenantId);
                     }
                 }
+
                 return;
             }
             $tenantId = TenantContext::getTenantId();

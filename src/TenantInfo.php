@@ -10,7 +10,7 @@ final class TenantInfo
         public readonly int $tenantId,
         public readonly string $tenantKey,
         public readonly string $source,
-        public readonly bool $isGlobalAdmin
+        public readonly bool $isGlobalAdmin,
     ) {
     }
 }

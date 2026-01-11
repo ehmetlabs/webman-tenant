@@ -11,7 +11,7 @@ final class TenantResolution
     public function __construct(
         public readonly ?TenantInfo $tenant,
         public readonly ?string $errorMessage = null,
-        public readonly int $errorStatus = 400
+        public readonly int $errorStatus = 400,
     ) {
     }
 
