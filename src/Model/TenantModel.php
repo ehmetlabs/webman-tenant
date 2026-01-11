@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Ehmetlabs\Tenant\Model;
+namespace Ehmetlabs\WebmanTenant\Model;
 
-use Ehmetlabs\Tenant\TenantContext;
+use Ehmetlabs\WebmanTenant\TenantContext;
 use Illuminate\Database\Eloquent\Builder;
 use support\Model;
 

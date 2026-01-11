@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ehmetlabs\Tenant\Model;
+namespace Ehmetlabs\WebmanTenant\Model;
 
 use support\Model;
 

@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Ehmetlabs\WebmanTenant;
 
-use app\tenant\TenantInfo;
 use support\Context;
 
 final class TenantContext
 {
-    private const CONTEXT_KEY = 'tenant.context';
+    private const string CONTEXT_KEY = 'tenant.context';
 
     public static function set(TenantInfo $tenant): void
     {

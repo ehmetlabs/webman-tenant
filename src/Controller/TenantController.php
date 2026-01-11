@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Ehmetlabs\Tenant\Controller;
+namespace Ehmetlabs\WebmanTenant\Controller;
 
-use Ehmetlabs\Tenant\Model\Tenant;
-use Ehmetlabs\Tenant\TenantContext;
+use Ehmetlabs\WebmanTenant\Model\Tenant;
+use Ehmetlabs\WebmanTenant\TenantContext;
 use support\Request;
 use support\Response;
 

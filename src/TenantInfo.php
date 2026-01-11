@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ehmetlabs\Tenant;
+namespace Ehmetlabs\WebmanTenant;
 
 final class TenantInfo
 {
