@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Ehmetlabs\WebmanTenant;
 
 use Ehmetlabs\WebmanTenant\Model\Tenant;
+use Ehmetlabs\WebmanTenant\Model\TenantAdmin;
 use support\Context;
 use support\Request;
 
@@ -29,20 +30,20 @@ final class TenantResolver
                 return new TenantResolution(null);
             }
 
-            return new TenantResolution(null, 'Tenant not resolved.', 400);
+            return new TenantResolution(null, '租户未识别', 400);
         }
 
         [$tenantKey, $source] = $tenantKeyResult;
         $tenantId = Tenant::resolveId($tenantKey);
         if (null === $tenantId) {
-            return new TenantResolution(null, 'Tenant not found.', 404);
+            return new TenantResolution(null, '租户不存在或已禁用', 404);
         }
 
         if (!$adminIdentity['isGlobalAdmin']
             && null !== $adminIdentity['tenantId']
             && $adminIdentity['tenantId'] !== $tenantId
         ) {
-            return new TenantResolution(null, 'Forbidden tenant access.', 403);
+            return new TenantResolution(null, '无权访问该租户', 403);
         }
 
         return new TenantResolution(
@@ -190,11 +191,8 @@ final class TenantResolver
         $isGlobalAdmin = null !== $adminId && $globalAdminId > 0 && $adminId === $globalAdminId;
 
         $tenantId = null;
-        if (\function_exists('admin')) {
-            $adminTenantId = admin('tenant_id');
-            if (null !== $adminTenantId) {
-                $tenantId = (int) $adminTenantId;
-            }
+        if (null !== $adminId) {
+            $tenantId = TenantAdmin::resolveTenantIdByAdminId($adminId);
         }
         if (null === $tenantId && \is_array($tokenClaims)) {
             $tenantClaimKey = (string) ($config['token_claim_key'] ?? 'tenant_id');

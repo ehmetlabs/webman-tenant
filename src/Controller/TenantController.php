@@ -14,7 +14,7 @@ class TenantController
     public function index(Request $request): Response
     {
         if (!TenantContext::isGlobalAdmin()) {
-            return json(['code' => 403, 'msg' => 'Forbidden', 'data' => []], 403);
+            return json(['code' => 403, 'msg' => '无权访问', 'data' => []], 403);
         }
 
         $tenants = Tenant::query()
@@ -27,7 +27,7 @@ class TenantController
     public function store(Request $request): Response
     {
         if (!TenantContext::isGlobalAdmin()) {
-            return json(['code' => 403, 'msg' => 'Forbidden', 'data' => []], 403);
+            return json(['code' => 403, 'msg' => '无权访问', 'data' => []], 403);
         }
 
         $name = \trim((string) $request->post('name', ''));
@@ -35,11 +35,11 @@ class TenantController
         $status = (int) $request->post('status', 1);
 
         if ('' === $name || '' === $slug) {
-            return json(['code' => 400, 'msg' => 'name and slug required', 'data' => []], 400);
+            return json(['code' => 400, 'msg' => 'name 和 slug 不能为空', 'data' => []], 400);
         }
 
         if (Tenant::where('slug', $slug)->exists()) {
-            return json(['code' => 409, 'msg' => 'Tenant slug already exists', 'data' => []], 409);
+            return json(['code' => 409, 'msg' => '租户标识已存在', 'data' => []], 409);
         }
 
         $tenant = new Tenant();

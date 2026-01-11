@@ -45,7 +45,7 @@ abstract class TenantModel extends Model
             }
             $tenantId = TenantContext::getTenantId();
             if (null === $tenantId) {
-                throw new \RuntimeException('Tenant context missing.');
+                throw new \RuntimeException('租户上下文缺失');
             }
             $model->setAttribute($tenantColumn, $tenantId);
         });
