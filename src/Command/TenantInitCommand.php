@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `tenants` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `name` varchar(128) NOT NULL COMMENT '租户名称',
   `slug` varchar(64) NOT NULL COMMENT '租户标识',
-  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态(1启用0禁用)',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态',
   `is_system` tinyint(1) NOT NULL DEFAULT '0' COMMENT '系统租户',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
