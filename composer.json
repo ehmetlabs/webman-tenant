@@ -1,0 +1,13 @@
+{
+  "name": "ehmetlabs/webman-tenant",
+  "type": "library",
+  "license": "MIT",
+  "description": "Webman plugin ehmetlabs/webman-tenant",
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Ehmetlabs\\WebmanTenant\\": "src"
+    }
+  }
+}
