@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ehmetlabs\Tenant;
+namespace Ehmetlabs\WebmanTenant;
 
 class Install
 {
@@ -12,7 +12,7 @@ class Install
      * @var array
      */
     protected static $pathRelation = [
-        'config/plugin/ehmetlabs/tenant' => 'config/plugin/ehmetlabs/tenant',
+        'config/plugin/ehmetlabs/webman-tenant' => 'config/plugin/ehmetlabs/webman-tenant',
     ];
 
     /**
