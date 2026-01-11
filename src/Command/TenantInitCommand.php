@@ -44,8 +44,8 @@ CREATE TABLE IF NOT EXISTS `tenants` (
   `slug` varchar(64) NOT NULL COMMENT '租户标识',
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态',
   `is_system` tinyint(1) NOT NULL DEFAULT '0' COMMENT '系统租户',
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `created_at` datetime DEFAULT NUll COMMENT '创建时间',
+  `updated_at` datetime DEFAULT NUll COMMENT '更新时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_tenants_slug` (`slug`),
   KEY `idx_tenants_status` (`status`)
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `tenant_admins` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `admin_id` int(10) unsigned NOT NULL COMMENT '管理员ID',
   `tenant_id` int(10) unsigned NOT NULL COMMENT '租户ID',
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `created_at` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_tenant_admins_admin` (`admin_id`),
   KEY `idx_tenant_admins_tenant` (`tenant_id`)
