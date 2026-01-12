@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ehmetlabs\WebmanTenant\Model;
+namespace plugin\tenant\app\model;
 
 use support\Model;
 

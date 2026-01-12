@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Ehmetlabs\WebmanTenant\Middleware;
+namespace plugin\tenant\app\middleware;
 
-use Ehmetlabs\WebmanTenant\TenantContext;
-use Ehmetlabs\WebmanTenant\TenantResolver;
+use plugin\tenant\app\common\TenantContext;
+use plugin\tenant\app\common\TenantResolver;
 use support\Context;
 use Webman\Http\Request;
 use Webman\Http\Response;

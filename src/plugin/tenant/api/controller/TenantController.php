@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Ehmetlabs\WebmanTenant\Controller;
+namespace plugin\tenant\api\controller;
 
-use Ehmetlabs\WebmanTenant\Model\Tenant;
-use Ehmetlabs\WebmanTenant\TenantContext;
 use support\Request;
 use support\Response;
+use plugin\tenant\app\common\TenantContext;
 
 class TenantController
 {

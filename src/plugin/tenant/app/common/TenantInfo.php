@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ehmetlabs\WebmanTenant;
+namespace plugin\tenant\app\common;
 
 final class TenantInfo
 {

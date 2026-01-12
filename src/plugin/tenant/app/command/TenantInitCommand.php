@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ehmetlabs\WebmanTenant\Command;
+namespace plugin\tenant\app\command;
 
 use support\Db;
 use Symfony\Component\Console\Attribute\AsCommand;

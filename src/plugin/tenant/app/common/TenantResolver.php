@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ehmetlabs\WebmanTenant;
+namespace plugin\tenant\app\common;
 
 use Ehmetlabs\WebmanTenant\Model\Tenant;
 use Ehmetlabs\WebmanTenant\Model\TenantAdmin;
