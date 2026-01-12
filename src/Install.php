@@ -13,7 +13,6 @@ class Install
      */
     protected static $pathRelation = [
         'plugin/tenant' => 'plugin/tenant',
-        'config/plugin/ehmetlabs/webman-tenant' => 'config/plugin/ehmetlabs/webman-tenant',
     ];
 
     /**
