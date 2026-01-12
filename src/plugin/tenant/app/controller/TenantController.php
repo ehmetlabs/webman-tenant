@@ -35,7 +35,7 @@ class TenantController extends Crud
      */
     public function index(): Response
     {
-        return view('tenant/index');
+        return raw_view('tenant/index');
     }
 
     /**
@@ -49,7 +49,7 @@ class TenantController extends Crud
             return parent::insert($request);
         }
 
-        return view('tenant/insert');
+        return raw_view('tenant/insert');
     }
 
     /**
@@ -63,6 +63,6 @@ class TenantController extends Crud
             return parent::update($request);
         }
 
-        return view('tenant/update');
+        return raw_view('tenant/update');
     }
 }
