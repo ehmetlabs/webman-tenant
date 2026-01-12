@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace plugin\tenant\api\controller;
 
+use plugin\tenant\app\common\TenantContext;
 use support\Request;
 use support\Response;
-use plugin\tenant\app\common\TenantContext;
 
 class TenantController
 {

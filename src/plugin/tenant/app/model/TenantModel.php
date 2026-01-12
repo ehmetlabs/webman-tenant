@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace plugin\tenant\app\model;
 
-use plugin\tenant\app\common\TenantContext;
 use Illuminate\Database\Eloquent\Builder;
+use plugin\tenant\app\common\TenantContext;
 use support\Model;
 
 abstract class TenantModel extends Model
