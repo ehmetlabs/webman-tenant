@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace plugin\tenant\app\common;
 
-use Ehmetlabs\WebmanTenant\Model\Tenant;
-use Ehmetlabs\WebmanTenant\Model\TenantAdmin;
+use plugin\tenant\app\model\Tenant;
+use plugin\tenant\app\model\TenantAdmin;
 use support\Context;
 use support\Request;
 
