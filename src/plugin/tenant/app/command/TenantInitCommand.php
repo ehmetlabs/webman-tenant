@@ -16,7 +16,7 @@ class TenantInitCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         try {
-            $config = config('plugin.ehmetlabs.webman-tenant.tenant', []);
+            $config = config('plugin.tenant.tenant', []);
             $globalTenantId = (int) ($config['global_tenant_id'] ?? 1);
             $globalAdminId = (int) ($config['global_admin_id'] ?? 0);
 

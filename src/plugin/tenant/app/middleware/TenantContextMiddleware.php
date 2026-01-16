@@ -15,7 +15,7 @@ class TenantContextMiddleware implements MiddlewareInterface
 {
     public function process(Request $request, callable $handler): Response
     {
-        $config = config('plugin.ehmetlabs.webman-tenant.tenant', []);
+        $config = config('plugin.tenant.tenant', []);
         if ($this->isExemptPath($request->path(), $config)) {
             return $handler($request);
         }
