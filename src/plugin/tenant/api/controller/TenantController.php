@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace plugin\tenant\api\controller;
 
 use plugin\tenant\app\common\TenantContext;
+use plugin\tenant\app\model\Tenant;
 use support\Request;
 use support\Response;
 
