@@ -82,10 +82,6 @@ class TenantController extends Crud
     {
         $config = config('plugin.tenant.tenant', []);
         $globalTenantId = (int) ($config['global_tenant_id'] ?? 0);
-        if (0 === $globalTenantId && [] === $tenantIds) {
-            return;
-        }
-
         $ids = \is_array($tenantIds) ? $tenantIds : [$tenantIds];
         $ids = \array_values(\array_filter($ids, static fn ($id) => null !== $id && '' !== $id));
         if ([] === $ids) {
