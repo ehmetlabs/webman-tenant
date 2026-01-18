@@ -8,6 +8,25 @@ use support\Model;
 
 class Tenant extends Model
 {
+    protected static function booted(): void
+    {
+        static::updating(static function (self $tenant): void {
+            $config = config('plugin.tenant.tenant', []);
+            $globalTenantId = (int) ($config['global_tenant_id'] ?? 0);
+            if (((int) $tenant->id === $globalTenantId) || 1 === (int) $tenant->is_system) {
+                throw new \RuntimeException('系统租户不可修改');
+            }
+        });
+
+        static::deleting(static function (self $tenant): void {
+            $config = config('plugin.tenant.tenant', []);
+            $globalTenantId = (int) ($config['global_tenant_id'] ?? 0);
+            if (((int) $tenant->id === $globalTenantId) || 1 === (int) $tenant->is_system) {
+                throw new \RuntimeException('系统租户不可删除');
+            }
+        });
+    }
+
     /**
      * @var string
      */

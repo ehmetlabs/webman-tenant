@@ -103,13 +103,19 @@
                         
                         // 字段 状态 status
                         layui.use(["form"], function() {
+                            let isSystemTenant = res.data[0] && res.data[0].is_system === 1;
                             layui.$("#status").attr("checked", layui.$('input[name="status"]').val() != 0);
+                            if (isSystemTenant) {
+                                layui.$("#status").attr("disabled", true);
+                            }
                             layui.form.render();
                             layui.form.on("switch(status)", function(data) {
+                                if (isSystemTenant) {
+                                    return false;
+                                }
                                 layui.$('input[name="status"]').val(this.checked ? 1 : 0);
                             });
                         })
-                        
                         
                         // ajax返回失败
                         if (res.code) {
@@ -128,10 +134,13 @@
                     email: [/(^$)|^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/, "邮箱格式不正确"],
                     url: [/(^$)|(^#)|(^http(s*):\/\/[^\s]+\.[^\s]+)/, "链接格式不正确"],
                     number: [/(^$)|^\d+$/,'只能填写数字'],
-                    date: [/(^$)|^(\d{4})[-\/](\d{1}|0\d{1}|1[0-2])([-\/](\d{1}|0\d{1}|[1-2][0-9]|3[0-1]))*$/, "日期格式不正确"],
+                    date: [/(^$)|^(\d{4})[-\/]?(\d{1}|0\d{1}|1[0-2])([-\/]?(\d{1}|0\d{1}|[1-2][0-9]|3[0-1]))*$/, "日期格式不正确"],
                     identity: [/(^$)|(^\d{15}$)|(^\d{17}(x|X|\d)$)/, "请输入正确的身份证号"]
                 });
                 layui.form.on("submit(save)", function (data) {
+                    if (layui.$('#status').is(':disabled')) {
+                        return layui.popup.failure("系统租户不可修改状态");
+                    }
                     data.field[PRIMARY_KEY] = layui.url().search[PRIMARY_KEY];
                     layui.$.ajax({
                         url: UPDATE_API,
