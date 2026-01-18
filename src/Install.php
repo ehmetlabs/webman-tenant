@@ -50,7 +50,7 @@ class Install
                 }
             }
             // symlink(__DIR__ . "/$source", base_path()."/$dest");
-            copy_dir(__DIR__ . "/$source", base_path() . "/$dest");
+            copy_dir(__DIR__ . "/$source", base_path() . "/$dest", true);
             echo "Create $dest
 ";
         }
