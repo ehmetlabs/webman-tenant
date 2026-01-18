@@ -62,8 +62,8 @@
 
             // 相关接口
             const PRIMARY_KEY = "id";
-            const SELECT_API = "/admin/tenant/select" + location.search;
-            const UPDATE_API = "/admin/tenant/update";
+            const SELECT_API = "/app/tenant/tenant/select" + location.search;
+            const UPDATE_API = "/app/tenant/tenant/update";
             // 获取数据库记录
             layui.use(["form", "util", "popup"], function () {
                 let $ = layui.$;
