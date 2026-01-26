@@ -8,6 +8,7 @@ use support\Model;
 
 class Tenant extends Model
 {
+    #[\Override]
     protected static function booted(): void
     {
         static::updating(static function (self $tenant): void {

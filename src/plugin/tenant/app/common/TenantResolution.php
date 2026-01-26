@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace plugin\tenant\app\common;
 
-final class TenantResolution
+final readonly class TenantResolution
 {
     public function __construct(
-        public readonly ?TenantInfo $tenant,
-        public readonly ?string $errorMessage = null,
-        public readonly int $errorStatus = 400,
+        public ?TenantInfo $tenant,
+        public ?string $errorMessage = null,
+        public int $errorStatus = 400,
     ) {
     }
 
     public function isResolved(): bool
     {
-        return null !== $this->tenant;
+        return $this->tenant instanceof TenantInfo;
     }
 }

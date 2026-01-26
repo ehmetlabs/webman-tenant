@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use support\exception\Handler;
+
 return [
-    '' => support\exception\Handler::class,
+    '' => Handler::class,
 ];

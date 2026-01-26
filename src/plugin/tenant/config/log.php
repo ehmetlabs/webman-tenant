@@ -2,18 +2,22 @@
 
 declare(strict_types=1);
 
+use Monolog\Formatter\LineFormatter;
+use Monolog\Handler\RotatingFileHandler;
+use Monolog\Logger;
+
 return [
     'default' => [
         'handlers' => [
             [
-                'class' => Monolog\Handler\RotatingFileHandler::class,
+                'class' => RotatingFileHandler::class,
                 'constructor' => [
                     runtime_path() . '/logs/tenant.log',
                     7,
-                    Monolog\Logger::DEBUG,
+                    Logger::DEBUG,
                 ],
                 'formatter' => [
-                    'class' => Monolog\Formatter\LineFormatter::class,
+                    'class' => LineFormatter::class,
                     'constructor' => [null, 'Y-m-d H:i:s', true],
                 ],
             ],

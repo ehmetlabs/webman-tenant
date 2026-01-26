@@ -14,6 +14,7 @@ abstract class TenantModel extends Model
 
     protected bool $tenantScoped = true;
 
+    #[\Override]
     protected static function booted(): void
     {
         static::addGlobalScope('tenant', static function (Builder $builder): void {

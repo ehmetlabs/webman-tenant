@@ -43,6 +43,7 @@ class TenantController extends Crud
      *
      * @throws BusinessException
      */
+    #[\Override]
     public function insert(Request $request): Response
     {
         if ('POST' === $request->method()) {
@@ -57,6 +58,7 @@ class TenantController extends Crud
      *
      * @throws BusinessException
      */
+    #[\Override]
     public function update(Request $request): Response
     {
         if ('POST' === $request->method()) {
@@ -69,6 +71,7 @@ class TenantController extends Crud
         return raw_view('tenant/update');
     }
 
+    #[\Override]
     public function delete(Request $request): Response
     {
         $primaryKey = $this->model->getKeyName();
